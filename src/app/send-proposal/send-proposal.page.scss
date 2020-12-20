@@ -1,0 +1,84 @@
+.page_title{
+    font-family: Tajawal;
+    font-weight: medium;
+    text-align: right;
+}
+.card-ios{
+    border-radius: 8px!important;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px!important;
+    font-family: Tajawal;
+}
+.font-taj{
+    font-family: Tajawal;
+    font-weight: medium;
+    font-size: larger;
+}
+.font-taj-small{
+    font-family: Tajawal;
+    font-size: small;
+}
+.text-white{
+    color: white;
+}
+.mt-1{
+    margin-top: 5vh;
+}
+.mt-2{
+    margin-top: 10vh;
+}
+.mt-3{
+    margin-top: 15vh;
+}
+.text-light-grey{
+    color: #ababab;
+}
+.vote-title{
+    font-size: x-large;
+    font-weight: bold;
+    padding-bottom: 2vh;
+}
+
+.radioOpt{
+    font-size: x-large;
+}
+
+.item-has-focus.label-floating.sc-ion-label-md-h,
+ .item-has-focus .label-floating.sc-ion-label-md-h,
+  .item-has-placeholder.label-floating.sc-ion-label-md-h, 
+  .item-has-placeholder .label-floating.sc-ion-label-md-h, 
+  .item-has-value.label-floating.sc-ion-label-md-h,
+   .item-has-value .label-floating.sc-ion-label-md-h{
+    color: black;
+   }
+   .label-floating.sc-ion-label-md-h{
+       transform-origin: right top;
+   }
+   .errorMessage{
+       color: #eb445a;
+       font-family: Tajawal;
+       font-size: small;
+       text-align: right;
+   }
+   .text-light-grey{
+       color: #ababab;
+   }
+   .lastFormLink{
+    text-decoration-line: none;
+   }
+   input#file-upload-button{
+    background-color: azure;
+    border-radius: 5px;
+   }
+   .file-label{
+       border-radius: 5px;
+       box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+       background-color: #d7d8da;
+       padding: 0.3em 2.5em;
+       color: #222428;
+       display: block;
+        text-align: center;
+   }
+   
+   .note-item{
+       height: 4.5vh;
+   }

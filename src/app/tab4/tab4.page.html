@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title class="page_title">
+      حسابي
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-padding-horizental">
+        <ion-item (click)="lastIssues()">
+          <ion-badge color="danger" style="font-size: large;">0</ion-badge>
+          <ion-label slot="" class="ion-text-right font-taj menu-title">الشكاوى السابقة</ion-label>
+        </ion-item>
+
+        <ion-item (click)="editInfo()">
+          <ion-label slot="" class="ion-text-right font-taj menu-title">تعديل البيانات</ion-label>
+        </ion-item>
+
+        <ion-item (click)="editPass()">
+          <ion-label slot="" class="ion-text-right font-taj menu-title">تغيير كلمة السر</ion-label>
+        </ion-item>
+
+        <ion-item (click)="logout()">
+          <ion-icon name="log-out-outline" size="large"></ion-icon>
+          <ion-label slot="" class="ion-text-right font-taj menu-title">تسجيل الخروج</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

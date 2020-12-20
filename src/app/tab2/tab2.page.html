@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title class="page_title">
+      شكاوى ومقترحات
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col  class="ion-padding-horizental mt-3">
+
+        <ion-card class="card-ios mt-1 slide-top"  [ngClass]="{'cardClicked':cardClicked}" (click)="goAdd(1)">
+          <ion-card-header>
+            <ion-card-title class="larg-card-title" color="tertiary">
+              تقديم شكوى
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+        <ion-card class="card-ios mt-1 slide-top2" (click)="goAdd(2)">
+          <ion-card-header>
+            <ion-card-title class="larg-card-title" color="tertiary">
+              تقديم اقتراح
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+        <ion-card class="card-ios mt-1 slide-top3" (click)="goAdd(3)">
+          <ion-card-header>
+            <ion-card-title class="larg-card-title" color="tertiary">
+              تقديم طلب مشروع
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

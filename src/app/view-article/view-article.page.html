@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title class="page_title">
+      <a routerLink="/tabs/tab1">رجوع</a>  
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="">
+        <ion-card class="card-trans">
+          <img [src]="article.imageUrl" />
+          <ion-card-header>
+            <ion-card-subtitle class="ion-text-right">{{article.creationDate}}</ion-card-subtitle>
+            <ion-card-title class="ion-text-right">{{article.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-right">{{article.subject}}</ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

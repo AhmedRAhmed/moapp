@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title class="page_title">
+      تصويت
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-padding-top">
+    <ion-row>
+      <ion-col class="ion-padding-horizental ion-text-end">
+        <ion-label class="ion-text-end text-light-grey font-taj">{{vote.endDate}} ينتهي في</ion-label>
+        <div>
+          <h3 class="ion-text-end vote-title font-taj">
+            {{vote.title}}
+          </h3>
+        </div>
+        <div>
+          <p class="ion-text-end font-taj">
+            {{vote.subject}}
+          </p>
+        </div>
+      </ion-col>
+    </ion-row>
+    <form [formGroup]="voteForm" (submit)="submitVote()">
+    <ion-row>
+      <ion-col class="ion-padding-horizental">
+          <ion-radio-group formControlName="vote">
+            <ion-item *ngFor = "let opt of voteOpts">
+              <ion-label class="ion-text-end radioOpt font-taj">{{opt.optTitle}}</ion-label>
+              <ion-radio slot="end" color="tertiary" [value]="opt.optId"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+      </ion-col>
+    </ion-row>
+    <ion-row class="mt-1">
+      <ion-col class="ion-padding-horizontal ion-padding-top">
+        <ion-button type="submit" [disabled]="!voteForm.valid" expand="block" color="success" class="font-taj text-white" size="large">تصويت</ion-button>
+      </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,67 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary ion-text-center">
+    <ion-title class="page_title">
+      تقديم شكوى
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="projectFrom" (submit)="submitProjectForm()">
+    <ion-grid class="mt-1">
+      <ion-row>
+        <ion-col>
+          <ion-item class="ion-padding-horizontal">
+            <ion-label position="floating" class="ion-text-right font-taj">عنوان الطلب</ion-label>
+            <ion-input formControlName="projectTitle" class="ion-text-end font-taj"></ion-input>
+          </ion-item>
+          <!-- ===================================================== -->
+          <ng-container *ngFor="let error of error_messages.projectTitle">
+            <div
+              *ngIf="projectFrom.get('projectTitle').hasError(error.type) && projectFrom.get('projectTitle').touched"
+              class="errorMessage">
+              {{error.message}}
+            </div>
+          </ng-container>
+          <!-- ===================================================== -->
+          <ion-item>
+            <ion-label position="floating" class="ion-text-right font-taj">وصف المشروع</ion-label>
+            <ion-textarea formControlName="projectSubject" placeholder="أكتب هنا" class="ion-text-right font-taj"
+              rows="2" auto-grow=true></ion-textarea>
+          </ion-item>
+          <!-- ===================================================== -->
+          <ng-container *ngFor="let error of error_messages.projectSubject">
+            <div
+              *ngIf="projectFrom.get('projectSubject').hasError(error.type) && projectFrom.get('projectSubject').touched"
+              class="errorMessage">
+              {{error.message}}
+            </div>
+          </ng-container>
+          <!-- ===================================================== -->
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-label class="font-taj ion-text-right ion-no-margin"> ارفق ملف (اختيارياً)</ion-label>
+          </ion-item>
+            <div class="ion-padding-horizontal ion-text-end">
+            <ion-label class="ion-text-end font-taj-small text-light-grey ion-no-margin">(pdf) يجب ان يكون نوع الملف .</ion-label>
+          </div>
+            <!-- </ion-item> -->
+          <ion-item class="ion-padding-horizontal" lines="none">
+            <label class="font-taj file-label" for="filr">اختر ملف</label>
+          </ion-item>
+          <ion-item class="ion-padding-horizontal" lines="none">
+            <p class="font-taj"> {{filePath}}</p>
+            <input type="file" style="display: none;" id="filr" accept="application/pdf" formControlName="projectfile"
+              class="ion-text-end font-taj" (change)="changeFileListener($event)">
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="mt-1">
+        <ion-col class="ion-padding-horizontal">
+          <ion-button type="submit" [disabled]="!projectFrom.valid" expand="block" color="warning"
+            class="font-taj text-white" size="large">ارسال الطلب</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

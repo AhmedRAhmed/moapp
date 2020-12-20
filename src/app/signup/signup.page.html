@@ -1,0 +1,134 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary ion-text-center">
+    <ion-title class="page_title">
+      إنشاء حساب
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="sginupForm" (submit)="submitsignupForm()">
+    <ion-grid class="mt-1">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item class="ion-padding-horizontal">
+            <ion-label position="floating"  class="ion-text-right font-taj">الأســم</ion-label>
+            <ion-input formControlName="name" class="ion-text-end font-taj"></ion-input>
+          </ion-item>
+          <!-- ===================================================== -->
+          <ng-container *ngFor="let error of error_messages.name">
+            <div *ngIf="sginupForm.get('name').hasError(error.type) && sginupForm.get('name').dirty" class="errorMessage">
+              {{error.message}}
+            </div>
+        </ng-container>
+          <!-- ****************************************************** -->
+
+
+          <ion-item class="ion-padding-horizontal">
+            <ion-label position="floating"  class="ion-text-right font-taj">رقم الهاتف</ion-label>
+            <ion-input formControlName="phone" class="ion-text-end font-taj"></ion-input>
+          </ion-item>
+          <!-- ===================================================== -->
+          <ng-container *ngFor="let error of error_messages.phone">
+            <div *ngIf="sginupForm.get('phone').hasError(error.type) && sginupForm.get('phone').dirty" class="errorMessage">
+              {{error.message}}
+            </div>
+        </ng-container>
+          <!-- ****************************************************** -->
+
+          
+          <ion-item class="ion-padding-horizontal">
+            <ion-label position="floating"  class="ion-text-right font-taj">الايميل (أختيارياً)</ion-label>
+            <ion-input formControlName="email" class="ion-text-end font-taj"></ion-input>
+          </ion-item>
+          <!-- ===================================================== -->
+          <ng-container *ngFor="let error of error_messages.email">
+            <div *ngIf="sginupForm.get('email').hasError(error.type) && sginupForm.get('email').dirty" class="errorMessage">
+              {{error.message}}
+            </div>
+        </ng-container>
+          <!-- ****************************************************** -->
+
+        </ion-col>
+        <ion-col size="6">
+          <ion-item class="ion-padding-horizontal">
+            <ion-label position="floating" class="ion-text-right font-taj">مدينة</ion-label>
+            <ion-select formControlName="city"  interface="popover" placeholder="اختر مدينك" style="font-size: small;" class="ion-text-right font-taj">
+              <ion-select-option value="Abu Teeg">أبو تيج</ion-select-option>
+              <ion-select-option value="Abnoub">أبنوب</ion-select-option>
+              <ion-select-option value="Assiut">أسيوط</ion-select-option>
+              <ion-select-option value="Albadary">البداري</ion-select-option>
+              <ion-select-option value="Alghanaim">الغنايم</ion-select-option>
+              <ion-select-option value="Alfateh">الفتح</ion-select-option>
+              <ion-select-option value="Alqusia">القوصية</ion-select-option>
+              <ion-select-option value="Dayrout">ديروط</ion-select-option>
+              <ion-select-option value="Manfalout">منفلوط</ion-select-option>
+              <ion-select-option value="Sahel Sleim">ساحل سليم</ion-select-option>
+              <ion-select-option value="Sedfa">صدفا</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <!-- ===================================================== -->
+          <ng-container *ngFor="let error of error_messages.city">
+            <div *ngIf="sginupForm.get('city').hasError(error.type) && sginupForm.get('city').touched" class="errorMessage">
+              {{error.message}}
+            </div>
+        </ng-container>
+          <!-- ****************************************************** -->
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-item class="ion-padding-horizontal">
+            <ion-label position="floating" class="ion-text-right font-taj">محافظة</ion-label>
+            <ion-select formControlName="governrate"  interface="popover" placeholder="اختر محافظك" style="font-size: small;" class="ion-text-right font-taj">
+              <ion-select-option value="Assiut">أسيوط</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <!-- ===================================================== -->
+          <ng-container *ngFor="let error of error_messages.governrate">
+            <div *ngIf="sginupForm.get('governrate').hasError(error.type) && sginupForm.get('governrate').touched" class="errorMessage">
+              {{error.message}}
+            </div>
+        </ng-container>
+          <!-- ****************************************************** -->
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-item class="ion-padding-horizontal">
+            <ion-label position="floating"  class="ion-text-right font-taj">كلمة السر</ion-label>
+            <ion-input type="password" formControlName="password" class="ion-text-end font-taj"></ion-input>
+          </ion-item>
+          <!-- ===================================================== -->
+          <ng-container *ngFor="let error of error_messages.password">
+            <div *ngIf="sginupForm.get('password').hasError(error.type) && sginupForm.get('password').dirty" class="errorMessage">
+              {{error.message}}
+            </div>
+          </ng-container>
+          <!-- ****************************************************** -->
+          </ion-col>
+
+          <ion-col size="12">
+            <ion-item class="ion-padding-horizontal">
+              <ion-label position="floating"  class="ion-text-right font-taj"> تأكيد كلمة السر</ion-label>
+              <ion-input type="password" formControlName="confirmPassword" class="ion-text-end font-taj"></ion-input>
+            </ion-item>
+            <!-- ===================================================== -->
+            <ng-container *ngFor="let error of error_messages.confirmPassword">
+              <div *ngIf="sginupForm.get('confirmPassword').hasError(error.type) && sginupForm.get('confirmPassword').dirty" class="errorMessage">
+                {{error.message}}
+              </div>
+            </ng-container>
+            <!-- ****************************************************** -->
+            </ion-col>
+      </ion-row>
+      <ion-row class="mt-1">
+        <ion-col class="ion-padding-horizontal ion-padding-top">
+          <ion-button type="submit" [disabled]="!sginupForm.valid" expand="block" color="warning" class="font-taj text-white" size="large">انشاء الحساب</ion-button>
+        </ion-col>
+  
+        <ion-col class="ion-padding-horizontal ion-padding-top" size="12">
+          <p class="text-light-grey ion-text-center ion-no-margin font-taj" style="font-size: unset;"> لديك حساب بالفعل؟ <a class="lastFormLink" [routerLink]="['/login']">سجل دخول</a></p>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+    </form>
+</ion-content>

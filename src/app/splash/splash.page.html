@@ -1,0 +1,17 @@
+<ion-content color="warning">
+<div class="top-container mt-1 ion-text-center">
+  <img src="assets/splash.png">
+</div>
+<div class="bott-container ion-text-center" [ngClass]="{'hide':!NoInternet}">
+<img src="assets/no-wifi.png">
+<p class="font-taj ion-no-margin">توجد مشكلة بالأتصال بالانترنت</p>
+</div>
+<div class="mid-container ion-text-center" [ngClass]="{'hide':NoInternet}">
+  <img src="assets/Spinner.gif">
+</div>
+  <div class="bott-container ion-text-center">
+    <p class="font-taj-small ion-no-margin">Sponsored By</p>
+    <P class="font-taj ion-no-margin">Yehia Abd EL-Latif</P>
+  <!-- <img src="assets/tashyeed.png"> -->
+</div>
+</ion-content>

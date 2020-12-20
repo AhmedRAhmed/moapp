@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title class="page_title">
+      تصويت
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card class=" card-ios mt-1 ion-padding-vertical" *ngFor="let vote of vots">
+    <ion-item class="">
+      <ion-card-title class="ion-text-right font-taj vote-title">
+        {{vote.title}}
+      </ion-card-title>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label class="ion-text-right text-light-grey font-taj">{{vote.endDate}} ينتهي في</ion-label>
+      <ion-button slot="start" class="font-taj" size="DEFAULT" color="success" (click)="viewVote(vote.id)">ضع صوتك
+      </ion-button>
+    </ion-item>
+  </ion-card>
+
+</ion-content>

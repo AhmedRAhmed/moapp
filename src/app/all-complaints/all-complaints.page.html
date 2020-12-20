@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary ion-text-center">
+    <ion-title class="page_title">
+      الشكاوى السابقة
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card *ngFor="let complaint of complaints" (click)="viewComplaint(complaint.id)">
+          <ion-card-header>
+            <ion-card-title class="ion-text-right font-taj">{{complaint.title}}</ion-card-title>
+            <ion-card-subtitle class="font-taj-small ion-text-right">{{complaint.creationDate}} إنشاء في</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

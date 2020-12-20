@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary ion-text-right">
+    <ion-title class="page_title">
+      تفاصيل شكوى
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="danger">
+      <ion-label class="font-taj pb">رد</ion-label>
+    </ion-fab-button>
+  </ion-fab> -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size=12>
+        <ion-card class="card-trans">
+          <ion-card-header>
+            <ion-card-subtitle class="ion-text-right">{{complaint.creationDate}} انشاء في </ion-card-subtitle>
+            <ion-card-title class="ion-text-right">{{complaint.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-right">{{complaint.subj}}</ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size=12>
+        <ion-card class="font-taj" *ngFor="let ans of answars">
+          <ion-card-header>
+            <ion-card-subtitle class="ion-text-right" [ngClass]="{'senderUser': ans.fromUser}"></ion-card-subtitle>
+            <ion-card-subtitle class="ion-text-right" [ngClass]="{'senderManag': !ans.fromUser}"></ion-card-subtitle>
+            <ion-card-subtitle class="ion-text-right">{{ans.creationDate}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content class="ion-text-right">{{ans.subj}}</ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- ******************************************************************************************** -->
+  <form [formGroup]="complaintFrom" (submit)="submitComplaintForm()">
+    <ion-grid class="">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating" class="ion-text-right font-taj">أكتب رداً </ion-label>
+            <ion-textarea formControlName="answerSubject" placeholder="أكتب هنا" class="ion-text-right font-taj"
+              rows="1" auto-grow=true></ion-textarea>
+          </ion-item>
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-label class="font-taj ion-text-right ion-no-margin"> ارفق ملف (اختيارياً)</ion-label>
+          </ion-item>
+          <div class="ion-padding-horizontal ion-text-end">
+            <ion-label class="ion-text-end font-taj-small text-light-grey ion-no-margin">(pdf) يجب ان يكون نوع الملف .
+            </ion-label>
+          </div>
+          <ion-item class="ion-padding-horizontal" lines="none">
+            <label class="font-taj file-label" for="filr">اختر ملف</label>
+          </ion-item>
+          <ion-item class="ion-padding-horizontal" lines="none">
+            <p class="font-taj"> {{filePath}}</p>
+            <input type="file" style="display: none;" id="filr" accept="application/pdf" formControlName="complaintfile"
+              class="ion-text-end font-taj" (change)="changeFileListener($event)">
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="">
+        <ion-col class="ion-padding-horizontal">
+          <ion-button type="submit" [disabled]="!complaintFrom.valid" expand="block" color="warning"
+            class="font-taj text-white" size="large">ارسال الرد</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>

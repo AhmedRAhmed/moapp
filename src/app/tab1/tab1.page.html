@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title class="page_title" slot="end">
+      الأخبار
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-content> -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- </ion-content> -->
+  <ion-grid>
+    <ion-row>
+      <ion-col class="">
+        <ng-container *ngIf="loading">
+          <div class="ion-text-center mt-4">
+            <img src="/assets/Spinner2.gif">
+          </div>
+        </ng-container>
+
+        <ion-card *ngFor="let article of articles" class="card-ios slide-top" (click)="viewArticle(article.id)">
+          <img [src]="article.urlToImage" style="width: auto; margin: auto; display: block;" />
+          <ion-card-header>
+            <ion-card-subtitle>{{article.publishedAt}}</ion-card-subtitle>
+            <ion-card-title class="ion-text-right">{{article.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-right">
+            {{article.content | slice :0:150}} <small style="color: cornflowerblue;">... المزيد</small>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

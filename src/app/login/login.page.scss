@@ -1,0 +1,52 @@
+.page_title{
+    font-family: Tajawal;
+    font-weight: medium;
+    text-align: right;
+}
+
+.font-taj{
+    font-family: Tajawal;
+    font-weight: medium;
+    font-size: larger;
+}
+.text-white{
+    color: white;
+}
+.mt-1{
+    margin-top: 5vh;
+}
+.mt-2{
+    margin-top: 10vh;
+}
+.mt-3{
+    margin-top: 15vh;
+}
+.item-has-focus.label-floating.sc-ion-label-md-h,
+ .item-has-focus .label-floating.sc-ion-label-md-h,
+  .item-has-placeholder.label-floating.sc-ion-label-md-h, 
+  .item-has-placeholder .label-floating.sc-ion-label-md-h, 
+  .item-has-value.label-floating.sc-ion-label-md-h,
+   .item-has-value .label-floating.sc-ion-label-md-h{
+    color: black;
+   }
+   .label-floating.sc-ion-label-md-h{
+       transform-origin: right top;
+   }
+   .errorMessage{
+       color: #eb445a;
+       font-family: Tajawal;
+       font-size: small;
+       text-align: right;
+   }
+   .text-light-grey{
+       color: #ababab;
+   }
+   .lastFormLink{
+    text-decoration-line: none;
+   }
+   .showPass{
+    color: #757575;
+   }
+   .hidePass{
+    color: #eb445a;
+   }

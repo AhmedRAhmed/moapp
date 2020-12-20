@@ -1,0 +1,103 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary ion-text-center">
+    <ion-title class="page_title">
+      تعديل البيانات الشخصية
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="editInfoFrom" (submit)="submitsignupForm()">
+    <ion-grid class="mt-1">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item class="ion-padding-horizontal">
+            <ion-label position="floating"  class="ion-text-right font-taj">الأســم</ion-label>
+          <!-- <ion-input value="clear me" formControlName="name"></ion-input> -->
+            <ion-input formControlName="name" class="ion-text-end font-taj"></ion-input>
+          </ion-item>
+          <!-- ===================================================== -->
+          <ng-container *ngFor="let error of error_messages.name">
+            <div *ngIf="editInfoFrom.get('name').hasError(error.type) && editInfoFrom.get('name').dirty" class="errorMessage">
+              {{error.message}}
+            </div>
+        </ng-container>
+          <!-- ****************************************************** -->
+
+
+          <ion-item class="ion-padding-horizontal">
+            <ion-label position="floating"  class="ion-text-right font-taj">رقم الهاتف</ion-label>
+            <ion-input formControlName="phone" class="ion-text-end font-taj"></ion-input>
+          </ion-item>
+          <!-- ===================================================== -->
+          <ng-container *ngFor="let error of error_messages.phone">
+            <div *ngIf="editInfoFrom.get('phone').hasError(error.type) && editInfoFrom.get('phone').dirty" class="errorMessage">
+              {{error.message}}
+            </div>
+        </ng-container>
+          <!-- ****************************************************** -->
+
+          
+          <ion-item class="ion-padding-horizontal">
+            <ion-label position="floating"  class="ion-text-right font-taj">الايميل</ion-label>
+            <ion-input formControlName="email" class="ion-text-end font-taj"></ion-input>
+          </ion-item>
+          <!-- ===================================================== -->
+          <ng-container *ngFor="let error of error_messages.email">
+            <div *ngIf="editInfoFrom.get('email').hasError(error.type) && editInfoFrom.get('email').dirty" class="errorMessage">
+              {{error.message}}
+            </div>
+        </ng-container>
+          <!-- ****************************************************** -->
+
+        </ion-col>
+        <ion-col size="6">
+          <ion-item class="ion-padding-horizontal">
+            <ion-label position="floating" class="ion-text-right font-taj">مدينة</ion-label>
+            <ion-select formControlName="city" interface="popover" [placeholder]="user.city" style="font-size: small;" class="ion-text-right font-taj">
+              <ion-select-option value="Abu Teeg">أبو تيج</ion-select-option>
+              <ion-select-option value="Abnoub">أبنوب</ion-select-option>
+              <ion-select-option value="Assiut">أسيوط</ion-select-option>
+              <ion-select-option value="Albadary">البداري</ion-select-option>
+              <ion-select-option value="Alghanaim">الغنايم</ion-select-option>
+              <ion-select-option value="Alfateh">الفتح</ion-select-option>
+              <ion-select-option value="Alqusia">القوصية</ion-select-option>
+              <ion-select-option value="Dayrout">ديروط</ion-select-option>
+              <ion-select-option value="Manfalout">منفلوط</ion-select-option>
+              <ion-select-option value="Sahel Sleim">ساحل سليم</ion-select-option>
+              <ion-select-option value="Sedfa">صدفا</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <!-- ===================================================== -->
+          <ng-container *ngFor="let error of error_messages.city">
+            <div *ngIf="editInfoFrom.get('city').hasError(error.type) && editInfoFrom.get('city').touched" class="errorMessage">
+              {{error.message}}
+            </div>
+        </ng-container>
+          <!-- ****************************************************** -->
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-item class="ion-padding-horizontal">
+            <ion-label position="floating" class="ion-text-right font-taj">محافظة</ion-label>
+            <ion-select formControlName="governrate" interface="popover" [placeholder]="user.gov" style="font-size: small;" class="ion-text-right font-taj">
+              <ion-select-option value="Assiut">أسيوط</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <!-- ===================================================== -->
+          <ng-container *ngFor="let error of error_messages.governrate">
+            <div *ngIf="editInfoFrom.get('governrate').hasError(error.type) && editInfoFrom.get('governrate').touched" class="errorMessage">
+              {{error.message}}
+            </div>
+        </ng-container>
+          <!-- ****************************************************** -->
+        </ion-col>
+      </ion-row>
+      <ion-row class="mt-1">
+        <ion-col class="ion-padding-horizontal ion-padding-top">
+          <ion-button type="submit" [disabled]="!editInfoFrom.dirty || !editInfoFrom.valid" expand="block" color="warning" class="font-taj text-white" size="large">حفظ التغييرات</ion-button>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+    </form>
+</ion-content>

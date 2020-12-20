@@ -1,0 +1,7 @@
+{
+  "name": "mwapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
